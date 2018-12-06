@@ -1,9 +1,9 @@
 <template>
-<div>{{message}}</div>
+  <div>{{ message }}</div>
 </template>
 
 <script>
-  export default {
-    data: () => ({message: 'Hello Vue.js!'})
-   }
+export default {
+  data: () => ({ message: 'Hello Vue.js!' })
+}
 </script>
