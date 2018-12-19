@@ -4,6 +4,8 @@ import CommonLayout from './components/CommonLayout.vue'
 import Home from './views/Home.vue'
 import Tag from './views/Tag.vue'
 import Login from './views/Login.vue'
+import Category from './views/Category.vue'
+import Article from './views/Article.vue'
 
 Vue.use(Router)
 
@@ -23,6 +25,14 @@ export default new Router({
         path: 'tag/:id',
         name: 'tag',
         component: Tag,
+      }, {
+        path: 'category/:id',
+        name: 'category',
+        component: Category,
+      }, {
+        path: 'article/:id',
+        name: 'article',
+        component: Article,
       }]
     }, {
       path: '/login',

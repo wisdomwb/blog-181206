@@ -1,5 +1,5 @@
 <template>
   <div class="tag">
-    tag
+    tag:{{$route.params.id}}
   </div>
 </template>

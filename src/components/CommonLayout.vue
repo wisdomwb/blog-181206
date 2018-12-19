@@ -7,23 +7,15 @@
           theme="dark"
           active-name="1"
         >
-          <div class="layout-logo">logo</div>
+          <div class="layout-logo">weizhen的个人博客</div>
           <div class="layout-nav">
             <MenuItem name="1">
             <Icon type="ios-navigate" />
-            Item 1
-            </MenuItem>
+            登录
+            </MenuItem> 
             <MenuItem name="2">
             <Icon type="ios-keypad" />
-            Item 2
-            </MenuItem>
-            <MenuItem name="3">
-            <Icon type="ios-analytics" />
-            Item 3
-            </MenuItem>
-            <MenuItem name="4">
-            <Icon type="ios-paper" />
-            Item 4
+            写文章
             </MenuItem>
           </div>
         </Menu>
@@ -40,7 +32,7 @@
           </div>
         </Card>
       </Content>
-      <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
+      <Footer class="layout-footer-center">hahaha</Footer>
     </Layout>
   </div>
 </template>
@@ -74,14 +66,15 @@ export default {
   overflow: hidden;
 }
 .layout-logo {
-  width: 100px;
+  /* width: 100px;
   height: 30px;
   background: #5b6270;
-  border-radius: 3px;
+  border-radius: 3px; */
   float: left;
   position: relative;
-  top: 15px;
+  /* top: 15px; */
   left: 20px;
+  color: #fff;
 }
 .layout-nav {
   width: 420px;
