@@ -23,10 +23,11 @@ module.exports = (env, options) => {
     },
     module: {
       rules: [{
-        test: /\.css$/,
+        test: /\.(le|c)ss$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader'
+          'css-loader',
+          'less-loader'
         ],
       }, {
         test: /\.(png|gif|jpg|jpeg|svg|xml|json|ttf|woff)$/,
