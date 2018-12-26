@@ -1,27 +1,29 @@
 <template>
   <div class="home">
-    <Layout>
-      <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-        <ArticleFragment
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
-        />
-      </Content>
-      <Sider
-        hide-trigger
-        :style="sideStyle"
-      >
-        <Profile :content='profile' />
-        <Tags :content='tags' />
-        <Categories :content='categories' />
-      </Sider>
-    </Layout>
+    <Card>
+      <Layout>
+        <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+          <ArticleFragment
+            v-for="article in articles"
+            :key="article.id"
+            :article="article"
+          />
+        </Content>
+        <Sider
+          hide-trigger
+          :style="sideStyle"
+        >
+          <Profile :content='profile' />
+          <Tags :content='tags' />
+          <Categories :content='categories' />
+        </Sider>
+      </Layout>
+    </Card>
   </div>
 </template>
 
 <script>
-import { Layout, Sider, Content } from 'iview'
+import { Layout, Sider, Content, Card } from 'iview'
 import ArticleFragment from '@/components/ArticleFragment.vue'
 import Profile from '@/components/Profile.vue'
 import Tags from '@/components/Tags.vue'
@@ -33,6 +35,7 @@ export default {
     Layout,
     Sider,
     Content,
+    Card,
     ArticleFragment,
     Profile,
     Tags,
@@ -101,12 +104,17 @@ export default {
       },]
     }
   },
-  methods: {
-
-  },
   created: function () {
     console.log('created')
+  },
+  methods: {
+
   }
 }
 </script>
 
+<style lang="less" scoped>
+.home {
+  margin-top: 20px;
+}
+</style>

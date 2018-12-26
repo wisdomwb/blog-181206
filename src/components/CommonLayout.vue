@@ -7,12 +7,14 @@
           theme="dark"
           active-name="1"
         >
-          <div class="layout-logo">weizhen的个人博客</div>
+          <div class="layout-logo">
+            weizhen的个人博客
+          </div>
           <div class="layout-nav">
             <MenuItem name="1">
             <Icon type="ios-navigate" />
             登录
-            </MenuItem> 
+            </MenuItem>
             <MenuItem name="2">
             <Icon type="ios-keypad" />
             写文章
@@ -21,24 +23,17 @@
         </Menu>
       </Header>
       <Content :style="{padding: '0 50px'}">
-        <Breadcrumb :style="{margin: '20px 0'}">
-          <!-- <BreadcrumbItem>Home</BreadcrumbItem>
-          <BreadcrumbItem>Components</BreadcrumbItem>
-          <BreadcrumbItem>Layout</BreadcrumbItem> -->
-        </Breadcrumb>
-        <Card>
-          <div style="min-height: 200px;">
-            <router-view />
-          </div>
-        </Card>
+        <RouterView />
       </Content>
-      <Footer class="layout-footer-center">hahaha</Footer>
+      <Footer class="layout-footer-center">
+        ---@@---
+      </Footer>
     </Layout>
   </div>
 </template>
 
 <script>
-import { Layout, Header, Menu, MenuItem, Icon, Content, Card, Footer, Breadcrumb, BreadcrumbItem } from 'iview'
+import { Layout, Header, Menu, MenuItem, Icon, Content, Card, Footer, Breadcrumb, } from 'iview'
 export default {
   name: 'CommonLayout',
   components: {
@@ -51,7 +46,6 @@ export default {
     Card,
     Footer,
     Breadcrumb,
-    BreadcrumbItem
   },
   props: {}
 }
