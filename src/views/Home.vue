@@ -13,6 +13,8 @@
         :style="sideStyle"
       >
         <Profile :content='profile' />
+        <Tags :content='tags' />
+        <Categories :content='categories' />
       </Sider>
     </Layout>
   </div>
@@ -22,6 +24,8 @@
 import { Layout, Sider, Content } from 'iview'
 import ArticleFragment from '@/components/ArticleFragment.vue'
 import Profile from '@/components/Profile.vue'
+import Tags from '@/components/Tags.vue'
+import Categories from '@/components/Categories.vue'
 
 export default {
   name: 'Home',
@@ -30,7 +34,9 @@ export default {
     Sider,
     Content,
     ArticleFragment,
-    Profile
+    Profile,
+    Tags,
+    Categories
   },
   data() {
     return {

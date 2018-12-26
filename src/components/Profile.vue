@@ -19,6 +19,8 @@ export default {
 
 <style lang="less" scoped>
 .profile {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
   h4 {
     color: #aaa;
   }
