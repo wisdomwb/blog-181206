@@ -14,9 +14,33 @@
           long
         >返回</Button>
       </div>
-      <div class="create-category">
+      <div
+        class="create-category"
+        @click='isShowNewCategory=true'
+      >
         +新建分类
       </div>
+      <transition name='new-category'>
+        <Form
+          v-show="isShowNewCategory"
+          :model='newCategory'
+          class="new-category-form"
+        >
+          <FormItem>
+            <Input
+              v-model="newCategory.input"
+              placeholder="请输入分类名..."
+            />
+          </FormItem>
+          <FormItem>
+            <Button type="primary">提交</Button>
+            <Button
+              style="margin-left: 8px"
+              @click="handleCancelNewCategory"
+            >取消</Button>
+          </FormItem>
+        </Form>
+      </transition>
       <Menu
         class="categories"
         theme='dark'
@@ -35,8 +59,8 @@
             @on-click='clickCategorySetItem'
           >
             <Icon
+              v-show="selectedCategory===item.name"
               type="md-settings"
-              :class="{ show: selectedCategory===item.name }"
               class="setting"
               @click="clickSet"
             />
@@ -103,7 +127,11 @@ export default {
         amount: 1
       },],
       categoryName: '',
-      selectedCategory: '前端'
+      selectedCategory: '前端',
+      newCategory: {
+        input: ''
+      },
+      isShowNewCategory: false,//是否显示新增分类
     }
   },
   methods: {
@@ -142,8 +170,14 @@ export default {
         })
       }
     },
+    //点击新增分类
     clickCategory(name) {
       this.selectedCategory = name
+    },
+    //取消新增分类
+    handleCancelNewCategory() {
+      this.isShowNewCategory = false
+      this.newCategory = { input: '' }
     }
   }
 }
@@ -173,6 +207,25 @@ export default {
         padding: 0 15px;
         margin-top: 20px;
         margin-bottom: 10px;
+        cursor: pointer;
+      }
+      .new-category-form {
+        padding: 0 20px;
+      }
+      // 定义进入过渡生效时的状态,定义离开过渡生效时的状态
+      .new-category-enter-active,
+      .new-category-leave-active {
+        transition: all 0.5s;
+      }
+      //定义进入过渡的开始状态,定义离开过渡的结束状态
+      .new-category-enter,
+      .new-category-leave-to {
+        height: 0;
+      }
+      //定义进入过渡的结束状态,定义离开过渡的开始状态
+      .new-category-enter-to,
+      .new-category-leave {
+        height: 114px;
       }
       .categories {
         position: relative;
@@ -184,10 +237,6 @@ export default {
           .ivu-dropdown {
             float: right;
             .setting {
-              display: none;
-              &.show {
-                display: inline-block;
-              }
             }
           }
         }
