@@ -1,7 +1,7 @@
 module.exports = (env, options) => {
-  const path = require('path');
+  const path = require('path')
 
-  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const HtmlWebpackPlugin = require('html-webpack-plugin')
 
   const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -9,7 +9,7 @@ module.exports = (env, options) => {
   const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 
-  const devMode = options.mode !== 'production';
+  const devMode = options.mode !== 'production'
   console.log(`当前config是：${options.mode}`)
 
   return {
