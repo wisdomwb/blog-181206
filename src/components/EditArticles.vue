@@ -8,7 +8,7 @@
     </div>
     <Menu
       class="articles"
-      :active-name='articles[0].id'
+      active-name='abc123a'
       @on-select='clickArticle'
       width='auto'
     >
@@ -60,7 +60,7 @@
             </DropdownItem>
             <DropdownItem name='del'>
               <Icon type="md-trash" />
-              删除分类
+              删除文章
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -72,9 +72,10 @@
 
 <script>
 
-import { Menu, MenuItem, Dropdown, DropdownMenu, DropdownItem, Row, Col, Icon, Button } from 'iview'
+import { Menu, MenuItem, Dropdown, DropdownMenu, DropdownItem, Icon } from 'iview'
 import documentOkSrc from '@/assets/document_ok.svg'
 import documentSrc from '@/assets/document.svg'
+import { formatDate } from '@/utils/utils'
 
 export default {
   name: 'EditArticles',
@@ -84,10 +85,7 @@ export default {
     Dropdown,
     DropdownMenu,
     DropdownItem,
-    Row,
-    Col,
     Icon,
-    Button,
   },
   data() {
     return {
@@ -127,7 +125,7 @@ export default {
     },
     clickCategorySetItem(name) {
       console.log(name)
-      if (name === 'del') {
+      if (name === 'del') {//删除
         this.$Modal.confirm({
           content: '<p>确定删除？</p>',
           onOk: () => {
@@ -138,28 +136,22 @@ export default {
           }
         })
       } else {
-        this.categoryName = this.selectedCategory
-        this.$Modal.confirm({
-          title: '请输入新分类名',
-          render: (h) => {
-            return h('Input', {
-              props: {
-                value: this.categoryName,
-                autofocus: true,
-              },
-              on: {
-                input: (val) => {
-                  this.categoryName = val;
-                }
-              }
-            })
-          }
-        })
+        //发布
       }
     },
     //点击新建文章
     clickCreateArticle() {
-
+      //test
+      let newArticle = {
+        id: 'abc123d',
+        title: formatDate(new Date(), 'yyyy-MM-dd'),
+        content: '',
+        viewTimes: 0,
+        lastModTime: new Date().getTime(),
+        img: '',
+        isPublished: false,
+      }
+      this.articles.unshift(newArticle)
     },
     //点击目录中的某篇文章
     clickArticle(id) {
@@ -195,7 +187,6 @@ export default {
         left: 20px;
         width: 22px;
         height: 30px;
-        // background: url(//cdn2.jianshu.io/writer/static/img/sprite.9d24217.png) no-repeat 0 -25px;
         background-size: auto auto;
         background-size: 250px;
       }
