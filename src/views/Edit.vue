@@ -17,25 +17,26 @@
         span="14"
         class="col2"
       >
+      <EditArticle />
       </Col>
     </Row>
   </div>
 </template>
 
 <script>
-import { Row, Col, Icon, Button } from 'iview'
+import { Row, Col } from 'iview'
 import EditCategories from '@/components/EditCategories.vue'
 import EditArticles from '@/components/EditArticles.vue'
+import EditArticle from '@/components/EditArticle.vue'
 
 export default {
   name: 'Edit',
   components: {
     Row,
     Col,
-    Icon,
-    Button,
     EditCategories,
-    EditArticles
+    EditArticles,
+    EditArticle
   },
   data() {
     return {
