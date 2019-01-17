@@ -9,23 +9,6 @@
         class="title-input"
       />
     </div>
-    <Row
-      class="toolbar"
-      type="flex"
-      justify="space-between"
-    >
-      <Col span="4">
-      <Icon
-        type="md-image"
-        size="20"
-      />
-      <Icon
-        type="md-help-circle"
-        size="20"
-      />
-      </Col>
-      <Col span="4">13</Col>
-    </Row>
     <textarea id='editArticleTextarea'>
 
     </textarea>
@@ -38,6 +21,8 @@ import { } from 'iview'
 import documentOkSrc from '@/assets/document_ok.svg'
 import documentSrc from '@/assets/document.svg'
 import { formatDate } from '@/utils/utils'
+import SimpleMDE from 'simplemde'
+import '../../node_modules/simplemde/dist/simplemde.min.css'
 
 export default {
   name: 'EditArticles',
@@ -58,7 +43,13 @@ export default {
     }
   },
   mounted() {
-
+    let simplemde = new SimpleMDE({
+      element: document.getElementById('editArticleTextarea'),
+      initialValue: this.article.content,
+      spellChecker: false,
+      status: false,
+      hideIcons: ['side-by-side', 'fullscreen']
+    })
   },
   methods: {
     clickSideBySide() {
@@ -88,16 +79,6 @@ export default {
       }
     }
   }
-  .toolbar {
-    background-color: #d9d9d9;
-    .ivu-icon {
-      padding: 10px;
-      &:hover {
-        color: #fff;
-        background: #595959;
-      }
-    }
-  }
 }
 </style>
 <style lang="less">
@@ -105,14 +86,27 @@ export default {
   .title {
     .title-input {
       input {
-        font-size: 26px;
         border: none;
         &:focus {
           box-shadow: 0 0 0 2px rgba(45, 140, 240, 0.2);
         }
-        margin: 10px 0;
       }
     }
+  }
+  .editor-toolbar {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    &:before,
+    &:after {
+      margin: 0;
+    }
+  }
+  .CodeMirror {
+    height: 500px;
+    font-size: 14px;
+    border-left: 0;
+    border-right: 0;
   }
 }
 </style>
