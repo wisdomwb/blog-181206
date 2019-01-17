@@ -9,8 +9,8 @@
     <Menu
       class="articles"
       active-name='abc123a'
-      @on-select='clickArticle'
       width='auto'
+      @on-select='clickArticle'
     >
       <MenuItem
         v-for="item in articles"

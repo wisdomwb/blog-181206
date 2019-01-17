@@ -40,6 +40,7 @@
       class="categories"
       theme='dark'
       :active-name='categories[0].name'
+      width='auto'
       @on-select='clickCategory'
     >
       <MenuItem

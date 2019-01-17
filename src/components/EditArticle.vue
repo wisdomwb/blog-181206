@@ -2,7 +2,7 @@
   <div class="edit-article">
     <div class="title">
       <Input
-        v-model="title"
+        v-model="article.title"
         size="large"
         placeholder="请输入标题"
         clearable
@@ -31,25 +31,24 @@ export default {
   },
   data() {
     return {
-      title: ''
+      article: {
+        id: 'abc123a',
+        title: '如何使用云存储来存取及优化图片资源',
+        content: '在日常开发中，不免会遇到需要实现图片上传与展示的需求。比如一个文章发布系统，我们通常会开发图片上传功能，让用户可以为自己的文章提供配图；而且图片上传后，还需要生成不同尺寸的缩略图...',
+        viewTimes: 5,
+        lastModTime: 1545355479433,
+        img: '',
+        isPublished: false,
+      }
     }
   },
   mounted() {
     let simplemde = new SimpleMDE({
       element: document.getElementById('editArticleTextarea'),
-      toolbar: ["quote", "italic", "strikethrough", "heading", "heading-smaller", "heading-bigger", "heading-1", "heading-2", "heading-3", "code", "quote", "unordered-list", "ordered-list", "clean-block", "link", "image", "table", "horizontal-rule", "preview", {
-        name: "side-by-side",
-        // action: this.clickSideBySide,
-        action: SimpleMDE.toggleSideBySide,
-        className: "fa fa-columns no-disable no-mobile",
-        title: "Toggle Side by Side",
-      }, {
-          name: "fullscreen",
-          // action: this.clickFullScreen,
-          action: SimpleMDE.toggleFullScreen,
-          className: "fa fa-arrows-alt no-disable no-mobile",
-          title: "Toggle Fullscreen",
-        }, "guide"]
+      initialValue: this.article.content,
+      spellChecker: false,
+      status: false,
+      hideIcons: ['side-by-side', 'fullscreen']
     })
   },
   methods: {
@@ -93,6 +92,21 @@ export default {
         }
       }
     }
+  }
+  .editor-toolbar {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    &:before,
+    &:after {
+      margin: 0;
+    }
+  }
+  .CodeMirror {
+    height: 500px;
+    font-size: 14px;
+    border-left: 0;
+    border-right: 0;
   }
 }
 </style>
