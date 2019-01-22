@@ -30,7 +30,7 @@ module.exports = (env, options) => {
           'less-loader'
         ],
       }, {
-        test: /\.(png|gif|jpg|jpeg|svg|xml|json|ttf|woff)$/,
+        test: /\.(png|gif|jpg|jpeg|svg|xml|json|eot|ttf|woff|woff2|otf)$/,
         use: {
           loader: 'url-loader',
           options: {

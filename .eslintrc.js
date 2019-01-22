@@ -9,6 +9,7 @@ module.exports = {
     // 'vue/no-unused-vars': 'error'
     'vue/html-quotes': 'off',
     'vue/html-indent': 'off',
-    'vue/html-self-closing': 'off'
+    'vue/html-self-closing': 'off',
+    'vue/no-parsing-error': 'off'
   }
 }

@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.6.3",
     "babel-plugin-import": "^1.11.0",
     "css-loader": "^1.0.1",
     "eslint": "^5.9.0",

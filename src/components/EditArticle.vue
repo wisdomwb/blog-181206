@@ -14,17 +14,34 @@
       type="flex"
       justify="space-between"
     >
-      <Col span="4">
+      <Col class="col0">
       <Icon
         type="md-image"
         size="20"
+        title='插入图片'
       />
       <Icon
         type="md-help-circle"
         size="20"
+        title='Markdown语法参考'
       />
       </Col>
-      <Col span="4">13</Col>
+      <Col class="col1">
+      <Icon
+        custom='fa fa-save'
+        size="20"
+        title='保存'
+      />
+      <span class="publish">
+        <Icon
+          type="md-help-circle"
+          size="20"
+        />
+        <span>
+          发布文章
+        </span>
+      </span>
+      </Col>
     </Row>
     <textarea id='editArticleTextarea'>
 
@@ -90,6 +107,23 @@ export default {
   }
   .toolbar {
     background-color: #d9d9d9;
+    font-size: 0;
+    .col0,
+    .col1 {
+      display: flex;
+    }
+    .publish {
+      display: inline-block;
+      padding-right: 10px;
+      font-size: 12px;
+      .ivu-icon {
+        padding-right: 0;
+      }
+      &:hover {
+        color: #fff;
+        background: #595959;
+      }
+    }
     .ivu-icon {
       padding: 10px;
       &:hover {
