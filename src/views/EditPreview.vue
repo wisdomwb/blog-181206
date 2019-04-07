@@ -1,5 +1,6 @@
 <template>
-  <div class="edit-article">
+  <Row class="edit-preview">
+    <Col span="12">
     <div class="title">
       <Input
         v-model="article.title"
@@ -53,7 +54,10 @@
       type="textarea"
     />
     <!-- <vue-markdown>{{ content }}</vue-markdown> -->
-  </div>
+    </Col>
+    <Col span="12">col-12</Col>
+  </Row>
+
 </template>
 
 <script>
@@ -65,7 +69,7 @@ import { formatDate } from '@/utils/utils'
 import VueMarkdown from 'vue-markdown'
 
 export default {
-  name: 'EditArticles',
+  name: 'EditPreview',
   components: {
     VueMarkdown
   },
@@ -100,9 +104,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.edit-article {
-  display: flex;
-  flex-flow: column;
+.edit-preview {
   height: 100%;
   .title {
     .ivu-input-wrapper {
@@ -147,7 +149,7 @@ export default {
 }
 </style>
 <style lang="less">
-.edit-article {
+.edit-preview {
   .title {
     .title-input {
       input {

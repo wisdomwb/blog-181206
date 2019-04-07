@@ -6,6 +6,7 @@ import Tag from './views/Tag.vue'
 import Login from './views/Login.vue'
 import Category from './views/Category.vue'
 import Article from './views/Article.vue'
+import EditPreview from './views/EditPreview.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,10 @@ export default new Router({
       path: '/edit',
       name: 'edit',
       component: () => import('./views/Edit.vue')
+    }, {
+      path: '/edit-preview',
+      name: 'editPreview',
+      component: EditPreview
     }
   ]
 })

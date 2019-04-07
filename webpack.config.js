@@ -40,6 +40,11 @@ module.exports = (env, options) => {
       }, {
         test: /\.vue$/,
         use: ['vue-loader']
+      }, {
+        //https://webpack.docschina.org/configuration/module/#rule-type
+        test: /\.json$/i,
+        type: 'javascript/auto',
+        loader: 'json-loader'
       }]
     },
     plugins: [
