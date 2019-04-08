@@ -5,7 +5,6 @@
         v-model="article.title"
         size="large"
         placeholder="请输入标题"
-        clearable
         class="title-input"
       />
     </div>
@@ -36,6 +35,7 @@
         custom='fa fa-columns'
         size="18"
         title='切换到预览模式'
+        @click='clickSideBySide'
       />
       <span class="publish">
         <Icon
@@ -52,7 +52,6 @@
       v-model="article.content"
       type="textarea"
     />
-    <!-- <vue-markdown>{{ content }}</vue-markdown> -->
   </div>
 </template>
 
@@ -62,12 +61,10 @@ import { } from 'iview'
 import documentOkSrc from '@/assets/document_ok.svg'
 import documentSrc from '@/assets/document.svg'
 import { formatDate } from '@/utils/utils'
-import VueMarkdown from 'vue-markdown'
 
 export default {
   name: 'EditArticles',
   components: {
-    VueMarkdown
   },
   data() {
     return {
@@ -88,7 +85,7 @@ export default {
   },
   methods: {
     clickSideBySide() {
-      alert('clickSideBySide')
+      this.$router.push(`/edit-preview`)
     },
     clickFullScreen() {
       alert('clickFullScreen')

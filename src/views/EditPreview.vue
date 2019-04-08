@@ -6,7 +6,6 @@
         v-model="article.title"
         size="large"
         placeholder="请输入标题"
-        clearable
         class="title-input"
       />
     </div>
@@ -36,7 +35,8 @@
       <Icon
         custom='fa fa-columns'
         size="18"
-        title='切换到预览模式'
+        title='返回'
+        @click='clickGoBack'
       />
       <span class="publish">
         <Icon
@@ -55,7 +55,12 @@
     />
     <!-- <vue-markdown>{{ content }}</vue-markdown> -->
     </Col>
-    <Col span="12">col-12</Col>
+    <Col span="12">
+    <div class="title">{{article.title}}</div>
+    <div class="content">
+      <vue-markdown>{{ article.content }}</vue-markdown>
+    </div>
+    </Col>
   </Row>
 
 </template>
@@ -78,7 +83,7 @@ export default {
       article: {
         id: 'abc123a',
         title: '如何使用云存储来存取及优化图片资源',
-        content: '在日常开发中，不免会遇到需要实现图片上传与展示的需求。比如一个文章发布系统，我们通常会开发图片上传功能，让用户可以为自己的文章提供配图；而且图片上传后，在日常开发中，不免会遇到需要实现图片上传与展示的需求。比如一个文章发布系统，我们通常会开发图片上传功能，让用户可以为自己的文章提供配图；而且图片上传后，还需要生成不同尺寸的缩略图，我们通常会开发图片上传功能，让用户可以为自己的文章提供配图；而且图片上传后，还需要生成不同尺寸的缩略图，还需要生成不同尺寸的缩略图...',
+        content: '## content0 ## content1',
         viewTimes: 5,
         lastModTime: 1545355479433,
         img: '',
@@ -91,6 +96,9 @@ export default {
 
   },
   methods: {
+    clickGoBack() {
+      this.$router.back()
+    },
     clickSideBySide() {
       alert('clickSideBySide')
     },
@@ -106,44 +114,63 @@ export default {
 <style lang="less" scoped>
 .edit-preview {
   height: 100%;
-  .title {
-    .ivu-input-wrapper {
-      input {
-        border: none;
+  & > div {
+    height: 100%;
+  }
+  & > div:first-child {
+    display: flex;
+    flex-flow: column;
+    border-right: 1px solid #ccc;
+    .title {
+      .ivu-input-wrapper {
+        input {
+          border: none;
+        }
+      }
+      .title-input {
+        color: #f00;
+        input {
+          border: none;
+        }
       }
     }
-    .title-input {
-      color: #f00;
-      input {
-        border: none;
+    .toolbar {
+      background-color: #d9d9d9;
+      font-size: 0;
+      .col0,
+      .col1 {
+        display: flex;
       }
+      .publish {
+        display: inline-block;
+        padding-right: 10px;
+        font-size: 12px;
+        .ivu-icon {
+          padding-right: 0;
+        }
+        &:hover {
+          color: #fff;
+          background: #595959;
+        }
+      }
+      .ivu-icon {
+        padding: 10px;
+        &:hover {
+          color: #fff;
+          background: #595959;
+        }
+      }
+    }
+    & > div:last-child {
+      flex: auto;
     }
   }
-  .toolbar {
-    background-color: #d9d9d9;
-    font-size: 0;
-    .col0,
-    .col1 {
-      display: flex;
-    }
-    .publish {
-      display: inline-block;
-      padding-right: 10px;
-      font-size: 12px;
-      .ivu-icon {
-        padding-right: 0;
-      }
-      &:hover {
-        color: #fff;
-        background: #595959;
-      }
-    }
-    .ivu-icon {
-      padding: 10px;
-      &:hover {
-        color: #fff;
-        background: #595959;
-      }
+  & > div:last-child {
+    padding: 10px;
+    background-color: #fcfaf2;
+    .title {
+      font-size: 26px;
+      margin-bottom: 10px;
     }
   }
 }
