@@ -20,6 +20,7 @@ module.exports = (env, options) => {
     output: {
       filename: '[name].js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath:'/'
     },
     module: {
       rules: [{
@@ -61,7 +62,8 @@ module.exports = (env, options) => {
     ],
     // development server options
     devServer: {
-      contentBase: path.join(__dirname, "dist")
+      contentBase: path.join(__dirname, "dist"),
+      historyApiFallback: true, 
     },
     resolve: {
       alias: {

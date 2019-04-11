@@ -7,7 +7,9 @@
         :key='item.name'
         class="item"
       >
-        {{ item.name }} <span>({{ item.amount }})</span>
+        <router-link to='/category/123'>
+          {{ item.name }} <i>({{ item.amount }})</i>
+        </router-link>
       </div>
     </div>
   </div>
@@ -37,7 +39,8 @@ export default {
   .item {
     display: inline-block;
     width: 50%;
-    & > span {
+    i {
+      font-style: normal;
       color: #aaa;
     }
   }
