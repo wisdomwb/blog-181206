@@ -7,6 +7,7 @@
         shape='circle'
         :size="'large'"
         long
+        @click="clickBack"
       >返回</Button>
     </div>
     <div
@@ -121,6 +122,9 @@ export default {
     }
   },
   methods: {
+    clickBack(){
+      this.$router.back()
+    },
     clickSet(name) {
       console.log(name)
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="article-fragment">
     <div class="txt">
-      <h3>{{ article.title }}</h3>
+      <h3 @click="clickArticle">{{ article.title }}</h3>
       <div class="content">{{ article.content }}</div>
       <div>
         <div class="view-times">
@@ -39,6 +39,11 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    clickArticle() {
+      this.$router.push(`/article/123`)
+    }
   }
 }
 </script>
@@ -51,6 +56,10 @@ export default {
   .txt {
     h3 {
       margin: 10px 0;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
     .content {
       margin-bottom: 5px;

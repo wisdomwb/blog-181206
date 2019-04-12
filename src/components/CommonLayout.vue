@@ -7,15 +7,21 @@
           theme="dark"
           active-name="1"
         >
-          <div class="layout-logo">
+          <div class="layout-logo" @click="goHome">
             weizhen的个人博客
           </div>
           <div class="layout-nav">
-            <MenuItem name="1">
+            <MenuItem
+              name="1"
+              to="/login"
+            >
             <Icon type="ios-navigate" />
             登录
             </MenuItem>
-            <MenuItem name="2">
+            <MenuItem
+              name="2"
+              to="edit"
+            >
             <Icon type="ios-keypad" />
             写文章
             </MenuItem>
@@ -47,7 +53,12 @@ export default {
     Footer,
     Breadcrumb,
   },
-  props: {}
+  props: {},
+  methods:{
+    goHome(){
+      this.$router.push('/home')
+    }
+  }
 }
 </script>
 
@@ -60,15 +71,11 @@ export default {
   overflow: hidden;
 }
 .layout-logo {
-  /* width: 100px;
-  height: 30px;
-  background: #5b6270;
-  border-radius: 3px; */
   float: left;
   position: relative;
-  /* top: 15px; */
   left: 20px;
   color: #fff;
+  cursor: pointer;
 }
 .layout-nav {
   width: 420px;

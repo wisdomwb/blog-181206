@@ -12,7 +12,8 @@
         <Icon
           type="md-create"
           class="mod"
-          title="修改"
+          title="编辑"
+          @click="clickMod"
         />
       </div>
       <div class="content">
@@ -46,7 +47,9 @@ export default {
     console.log('created')
   },
   methods: {
-
+    clickMod() {
+      this.$router.push(`/edit`)
+    }
   }
 }
 </script>
